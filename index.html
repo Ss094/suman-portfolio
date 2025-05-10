@@ -5,10 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Suman Saurav - Data Analyst, AI/ML Enthusiast, and Full Stack Developer Portfolio">
     <meta name="keywords" content="Data Analysis, AI/ML, Full Stack Development, Portfolio">
+    <meta property="og:title" content="Suman Saurav | Portfolio">
+    <meta property="og:description" content="Welcome to my portfolio. Explore my skills, projects, and contact information.">
+    <meta property="og:image" content="path-to-thumbnail-image.jpg">
+    <meta property="og:url" content="https://your-portfolio-url.com">
     <title>Suman Saurav | Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Smooth scrolling for in-page navigation */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 <body>
     <!-- Theme Toggle Button -->
@@ -16,10 +26,10 @@
         <i class="fas fa-moon"></i>
     </button>
 
-    <header>
-        <nav>
+    <header role="banner">
+        <nav role="navigation">
             <ul>
-                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="index.html" class="active" aria-current="page"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
                 <li><a href="projects.html"><i class="fas fa-code"></i> Projects</a></li>
                 <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
@@ -27,10 +37,10 @@
         </nav>
     </header>
 
-    <main>
-        <section class="hero">
+    <main role="main">
+        <section class="hero" aria-labelledby="hero-heading">
             <div class="hero-content">
-                <h1>Hi, I'm Suman Saurav</h1>
+                <h1 id="hero-heading">Hi, I'm Suman Saurav</h1>
                 <p class="tagline">Data Analyst | AI/ML Enthusiast | Full Stack Developer</p>
                 <div class="hero-buttons">
                     <a href="about.html" class="btn primary-btn">Learn More</a>
@@ -44,7 +54,8 @@
             </div>
         </section>
 
-        <section class="featured-skills">
+        <section class="featured-skills" aria-labelledby="skills-heading">
+            <h2 id="skills-heading">My Skills</h2>
             <div class="skills-container">
                 <div class="skill-card">
                     <i class="fas fa-database"></i>
@@ -65,7 +76,7 @@
         </section>
     </main>
 
-    <footer>
+    <footer role="contentinfo">
         <div class="footer-content">
             <p>&copy; 2025 Suman Saurav. All rights reserved.</p>
             <div class="footer-links">
@@ -81,25 +92,21 @@
         // Theme Toggle Functionality
         const themeToggle = document.querySelector('.theme-toggle');
         const icon = themeToggle.querySelector('i');
-        
-        // Check for saved theme preference
+
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
             document.documentElement.setAttribute('data-theme', savedTheme);
             updateIcon(savedTheme);
         }
 
-        // Toggle theme
         themeToggle.addEventListener('click', () => {
             const currentTheme = document.documentElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
             updateIcon(newTheme);
         });
 
-        // Update icon based on theme
         function updateIcon(theme) {
             icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
         }
