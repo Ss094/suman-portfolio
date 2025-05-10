@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Suman Saurav's Portfolio Projects - Explore my work in Data Analysis, AI/ML, and Web Development">
+    <meta name="keywords" content="Projects, Portfolio, Data Analysis, AI/ML, Web Development">
+    <title>Projects | Suman Saurav</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="projects.html" class="active"><i class="fas fa-code"></i> Projects</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="projects-hero">
+            <div class="projects-content">
+                <h1>My Projects</h1>
+                <p class="tagline">A collection of my work in Data Analysis, AI/ML, and Web Development</p>
+            </div>
+        </section>
+
+        <section class="projects-grid">
+            <div class="container">
+                <div class="projects-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="data">Data Analysis</button>
+                    <button class="filter-btn" data-filter="ai">AI/ML</button>
+                    <button class="filter-btn" data-filter="web">Web Development</button>
+                </div>
+
+                <div class="projects-container">
+                    <!-- Data Analysis Project -->
+                    <div class="project-card" data-category="data">
+                        <div class="project-image">
+                            <img src="images/data-analysis-project.jpg" alt="Data Analysis Project">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="#" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                                    <a href="#" target="_blank" class="project-link"><i class="fas fa-play"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Sales Analytics Dashboard</h3>
+                            <p>Interactive dashboard for analyzing sales data using Power BI and Python</p>
+                            <div class="project-tags">
+                                <span>Power BI</span>
+                                <span>Python</span>
+                                <span>SQL</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI/ML Project -->
+                    <div class="project-card" data-category="ai">
+                        <div class="project-image">
+                            <img src="images/ai-project.jpg" alt="AI/ML Project">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="#" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                                    <a href="#" target="_blank" class="project-link"><i class="fas fa-play"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Image Recognition System</h3>
+                            <p>Deep learning model for real-time image classification using TensorFlow</p>
+                            <div class="project-tags">
+                                <span>TensorFlow</span>
+                                <span>Python</span>
+                                <span>Computer Vision</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Web Development Project -->
+                    <div class="project-card" data-category="web">
+                        <div class="project-image">
+                            <img src="images/web-project.jpg" alt="Web Development Project">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="#" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                                    <a href="#" target="_blank" class="project-link"><i class="fas fa-play"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>E-commerce Platform</h3>
+                            <p>Full-stack e-commerce solution with React and Node.js</p>
+                            <div class="project-tags">
+                                <span>React</span>
+                                <span>Node.js</span>
+                                <span>MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Suman Saurav. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="https://kit.fontawesome.com/your-kit-code.js"></script>
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        const icon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateIcon(savedTheme);
+        }
+
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
+        });
+
+        // Update icon based on theme
+        function updateIcon(theme) {
+            icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+    </script>
+</body>
+</html>
